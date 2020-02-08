@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render code 1`] = `
+<td
+  className="source-line-code code has-issues"
+  data-line-number={3}
+>
+  <div
+    className="source-line-code-inner"
+  >
+    <pre>
+      <span
+        className="k source-line-code-issue"
+        key="0"
+      >
+        class
+      </span>
+      <span
+        className=""
+        key="1"
+      >
+         
+      </span>
+      <span
+        className="sym sym-1"
+        key="2"
+      >
+        Foo
+      </span>
+      <span
+        className=""
+        key="3"
+      >
+         {
+      </span>
+    </pre>
+  </div>
+  <LineIssuesList
+    branchLike={
+      Object {
+        "isMain": false,
+        "mergeBranch": "master",
+        "name": "feature",
+        "type": "SHORT",
+      }
+    }
+    issues={
+      Array [
+        Object {
+          "actions": Array [],
+          "component": "",
+          "componentLongName": "",
+          "componentQualifier": "",
+          "componentUuid": "",
+          "creationDate": "",
+          "flows": Array [],
+          "fromHotspot": false,
+          "key": "issue-1",
+          "message": "",
+          "organization": "",
+          "project": "",
+          "projectKey": "",
+          "projectName": "",
+          "projectOrganization": "",
+          "rule": "",
+          "ruleName": "",
+          "secondaryLocations": Array [],
+          "severity": "",
+          "status": "",
+          "transitions": Array [],
+          "type": "BUG",
+        },
+        Object {
+          "actions": Array [],
+          "component": "",
+          "componentLongName": "",
+          "componentQualifier": "",
+          "componentUuid": "",
+          "creationDate": "",
+          "flows": Array [],
+          "fromHotspot": false,
+          "key": "issue-2",
+          "message": "",
+          "organization": "",
+          "project": "",
+          "projectKey": "",
+          "projectName": "",
+          "projectOrganization": "",
+          "rule": "",
+          "ruleName": "",
+          "secondaryLocations": Array [],
+          "severity": "",
+          "status": "",
+          "transitions": Array [],
+          "type": "BUG",
+        },
+      ]
+    }
+    onIssueChange={[MockFunction]}
+    onIssueClick={[MockFunction]}
+    onIssuePopupToggle={[MockFunction]}
+    selectedIssue="issue-1"
+  />
+</td>
+`;

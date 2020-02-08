@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders meta for long-living branch 1`] = `
+<div
+  className="navbar-context-meta"
+>
+  <div
+    className="spacer-left text-ellipsis"
+  >
+    <DateTimeFormatter
+      date="2017-01-02T00:00:00.000Z"
+    />
+  </div>
+  <Tooltip
+    mouseEnterDelay={0.5}
+    overlay="version 0.0.1"
+  >
+    <div
+      className="spacer-left text-limited"
+    >
+      version
+       
+      0.0.1
+    </div>
+  </Tooltip>
+</div>
+`;
+
+exports[`renders meta for pull request 1`] = `
+<div
+  className="navbar-context-meta"
+>
+  <div
+    className="spacer-left text-ellipsis"
+  >
+    <DateTimeFormatter
+      date="2017-01-02T00:00:00.000Z"
+    />
+  </div>
+  <div
+    className="navbar-context-meta-secondary display-inline-flex-center"
+  >
+    <a
+      className="display-inline-flex-center big-spacer-right"
+      href="https://example.com/pull/1234"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      branches.see_the_pr
+      <DetachIcon
+        className="little-spacer-left"
+        size={12}
+      />
+    </a>
+    <BranchStatus
+      branchLike={
+        Object {
+          "analysisDate": "2018-01-01",
+          "base": "master",
+          "branch": "feature/foo/bar",
+          "key": "1001",
+          "title": "Foo Bar feature",
+          "url": "https://example.com/pull/1234",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`renders status of short-living branch 1`] = `
+<div
+  className="navbar-context-meta"
+>
+  <div
+    className="spacer-left text-ellipsis"
+  >
+    <DateTimeFormatter
+      date="2017-01-02T00:00:00.000Z"
+    />
+  </div>
+  <div
+    className="navbar-context-meta-secondary display-inline-flex-center"
+  >
+    <BranchStatus
+      branchLike={
+        Object {
+          "analysisDate": "2018-01-01",
+          "isMain": false,
+          "mergeBranch": "master",
+          "name": "release-1.0",
+          "type": "SHORT",
+        }
+      }
+    />
+  </div>
+</div>
+`;

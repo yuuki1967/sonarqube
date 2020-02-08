@@ -1,0 +1,67 @@
+/**
+ * This module is building the zip file containing the static web site
+ */
+
+sonarqube {
+  skipProject = true
+}
+
+group = 'com.sonarsource.sonarqube'
+
+yarn_run {
+  environment = [ GATSBY_DOCS_VERSION: version ]
+  inputs.property('version', version)
+  inputs.dir('src').withPathSensitivity(PathSensitivity.RELATIVE)
+  ['gatsby-config.js', 'gatsby-node.js', 'package.json'].each {
+    inputs.file(it).withPathSensitivity(PathSensitivity.RELATIVE)
+  }
+  outputs.dir('public')
+  outputs.cacheIf { true }
+  args = ['build']
+}
+
+task "yarn_validate-ci"() {
+
+}
+
+task "yarn_lint-report"() {
+
+}
+
+task zip(type: Zip) {
+  def archiveDir = "$version"
+  duplicatesStrategy DuplicatesStrategy.EXCLUDE
+  baseName "sonar-docs"
+
+  into("${archiveDir}") {
+    from tasks.getByName('yarn_run').outputs
+  }
+}
+zip.dependsOn yarn_run
+assemble.dependsOn zip
+
+publishing {
+  publications {
+    docs(MavenPublication) {
+      artifactId 'sonar-docs'
+      artifact zip
+    }
+  }
+}
+
+artifactory {
+  publish {
+    contextUrl = System.getenv('ARTIFACTORY_URL')
+    repository {
+      repoKey = System.getenv('ARTIFACTORY_DEPLOY_REPO_PRIVATE')
+      username = System.getenv('ARTIFACTORY_DEPLOY_USERNAME_PRIVATE')
+      password = System.getenv('ARTIFACTORY_DEPLOY_PASSWORD_PRIVATE')
+    }
+  }
+}
+
+artifactoryPublish {
+  skip = false
+  publishPom = false
+  publications(publishing.publications.docs)
+}

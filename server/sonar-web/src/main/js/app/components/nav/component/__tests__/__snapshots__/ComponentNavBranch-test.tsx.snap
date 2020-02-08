@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders main branch 1`] = `
+<div
+  className="navbar-context-branches"
+>
+  <div
+    className="dropdown"
+  >
+    <Toggler
+      onRequestClose={[Function]}
+      open={false}
+      overlay={
+        <withRouter(ComponentNavBranchesMenu)
+          branchLikes={
+            Array [
+              Object {
+                "isMain": true,
+                "name": "master",
+              },
+              Object {
+                "isMain": false,
+                "name": "foo",
+                "type": "LONG",
+              },
+            ]
+          }
+          component={Object {}}
+          currentBranchLike={
+            Object {
+              "isMain": true,
+              "name": "master",
+            }
+          }
+          onClose={[Function]}
+        />
+      }
+    >
+      <a
+        className="link-base-color link-no-underline nowrap"
+        href="#"
+        onClick={[Function]}
+      >
+        <BranchIcon
+          branchLike={
+            Object {
+              "isMain": true,
+              "name": "master",
+            }
+          }
+          className="little-spacer-right"
+        />
+        <span
+          className="text-limited text-top"
+          title="master"
+        >
+          master
+        </span>
+        <DropdownIcon
+          className="little-spacer-left"
+        />
+      </a>
+    </Toggler>
+  </div>
+</div>
+`;
+
+exports[`renders no branch support popup 1`] = `
+<DocTooltip
+  className="spacer-left"
+  doc={Promise {}}
+>
+  <PlusCircleIcon
+    fill="#b4b4b4"
+    size={12}
+  />
+</DocTooltip>
+`;
+
+exports[`renders pull request 1`] = `
+<div
+  className="navbar-context-branches"
+>
+  <div
+    className="dropdown"
+  >
+    <Toggler
+      onRequestClose={[Function]}
+      open={false}
+      overlay={
+        <withRouter(ComponentNavBranchesMenu)
+          branchLikes={
+            Array [
+              Object {
+                "base": "master",
+                "branch": "feature",
+                "key": "1234",
+                "title": "Feature PR",
+                "url": "https://example.com/pull/1234",
+              },
+              Object {
+                "isMain": false,
+                "name": "foo",
+                "type": "LONG",
+              },
+            ]
+          }
+          component={Object {}}
+          currentBranchLike={
+            Object {
+              "base": "master",
+              "branch": "feature",
+              "key": "1234",
+              "title": "Feature PR",
+              "url": "https://example.com/pull/1234",
+            }
+          }
+          onClose={[Function]}
+        />
+      }
+    >
+      <a
+        className="link-base-color link-no-underline nowrap"
+        href="#"
+        onClick={[Function]}
+      >
+        <BranchIcon
+          branchLike={
+            Object {
+              "base": "master",
+              "branch": "feature",
+              "key": "1234",
+              "title": "Feature PR",
+              "url": "https://example.com/pull/1234",
+            }
+          }
+          className="little-spacer-right"
+        />
+        <span
+          className="text-limited text-top"
+          title="1234 – Feature PR"
+        >
+          1234 – Feature PR
+        </span>
+        <DropdownIcon
+          className="little-spacer-left"
+        />
+      </a>
+    </Toggler>
+  </div>
+  <span
+    className="note big-spacer-left text-ellipsis flex-shrink"
+  >
+    <FormattedMessage
+      defaultMessage="branches.pull_request.for_merge_into_x_from_y"
+      id="branches.pull_request.for_merge_into_x_from_y"
+      values={
+        Object {
+          "base": <strong>
+            master
+          </strong>,
+          "branch": <strong>
+            feature
+          </strong>,
+        }
+      }
+    />
+  </span>
+</div>
+`;
+
+exports[`renders short-living branch 1`] = `
+<div
+  className="navbar-context-branches"
+>
+  <div
+    className="dropdown"
+  >
+    <Toggler
+      onRequestClose={[Function]}
+      open={false}
+      overlay={
+        <withRouter(ComponentNavBranchesMenu)
+          branchLikes={
+            Array [
+              Object {
+                "isMain": false,
+                "mergeBranch": "master",
+                "name": "foo",
+                "status": Object {
+                  "qualityGateStatus": "OK",
+                },
+                "type": "SHORT",
+              },
+              Object {
+                "isMain": false,
+                "name": "foo",
+                "type": "LONG",
+              },
+            ]
+          }
+          component={Object {}}
+          currentBranchLike={
+            Object {
+              "isMain": false,
+              "mergeBranch": "master",
+              "name": "foo",
+              "status": Object {
+                "qualityGateStatus": "OK",
+              },
+              "type": "SHORT",
+            }
+          }
+          onClose={[Function]}
+        />
+      }
+    >
+      <a
+        className="link-base-color link-no-underline nowrap"
+        href="#"
+        onClick={[Function]}
+      >
+        <BranchIcon
+          branchLike={
+            Object {
+              "isMain": false,
+              "mergeBranch": "master",
+              "name": "foo",
+              "status": Object {
+                "qualityGateStatus": "OK",
+              },
+              "type": "SHORT",
+            }
+          }
+          className="little-spacer-right"
+        />
+        <span
+          className="text-limited text-top"
+          title="foo"
+        >
+          foo
+        </span>
+        <DropdownIcon
+          className="little-spacer-left"
+        />
+      </a>
+    </Toggler>
+  </div>
+  <span
+    className="note big-spacer-left"
+  >
+    from
+     
+    <strong>
+      master
+    </strong>
+  </span>
+</div>
+`;
+
+exports[`renders single branch popup 1`] = `
+<DocTooltip
+  className="spacer-left"
+  doc={Promise {}}
+>
+  <PlusCircleIcon
+    fill="#4b9fd5"
+    size={12}
+  />
+</DocTooltip>
+`;

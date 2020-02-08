@@ -1,0 +1,144 @@
+{
+  "name": "sonarqube-vsts",
+  "version": "0.0.1",
+  "description": "Quality Widget for VSTS",
+  "repository": "SonarSource/sonarqube",
+  "license": "LGPL-3.0",
+  "private": true,
+  "dependencies": {
+    "@babel/polyfill": "7.0.0",
+    "classnames": "2.2.6",
+    "lodash": "4.17.11",
+    "react": "16.6.0",
+    "react-dom": "16.6.0",
+    "whatwg-fetch": "2.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.2",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0",
+    "@babel/plugin-transform-react-constant-elements": "7.0.0",
+    "@babel/plugin-transform-react-jsx-self": "7.0.0",
+    "@babel/plugin-transform-react-jsx-source": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0",
+    "@types/classnames": "2.2.6",
+    "@types/enzyme": "3.1.14",
+    "@types/jest": "23.3.7",
+    "@types/lodash": "4.14.117",
+    "@types/react": "16.4.18",
+    "@types/react-dom": "16.0.9",
+    "autoprefixer": "9.3.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "23.6.0",
+    "babel-loader": "8.0.4",
+    "babel-plugin-dynamic-import-node": "2.2.0",
+    "babel-plugin-lodash": "3.3.4",
+    "chalk": "2.4.1",
+    "clean-webpack-plugin": "0.1.19",
+    "copy-webpack-plugin": "4.5.4",
+    "css-loader": "1.0.0",
+    "enzyme": "3.7.0",
+    "enzyme-adapter-react-16": "1.6.0",
+    "enzyme-to-json": "3.3.4",
+    "escape-string-regexp": "1.0.5",
+    "eslint": "5.7.0",
+    "eslint-config-sonarqube": "0.2.0",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-promise": "4.0.1",
+    "eslint-plugin-react": "7.11.1",
+    "eslint-plugin-sonarjs": "0.2.0",
+    "html-webpack-plugin": "3.2.0",
+    "jest": "23.6.0",
+    "postcss-calc": "7.0.0",
+    "postcss-custom-properties": "8.0.8",
+    "postcss-loader": "3.0.0",
+    "prettier": "1.14.3",
+    "react-dev-utils": "5.0.0",
+    "react-error-overlay": "1.0.7",
+    "react-test-renderer": "16.6.0",
+    "style-loader": "0.23.1",
+    "ts-jest": "23.10.4",
+    "ts-loader": "5.2.2",
+    "typescript": "3.1.3",
+    "typescript-eslint-parser": "20.0.0",
+    "webpack": "4.22.0",
+    "webpack-bundle-analyzer": "3.0.3",
+    "webpack-dev-server": "3.1.10"
+  },
+  "scripts": {
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "jest --passWithNoTests",
+    "format": "prettier --write --list-different 'src/main/js/!(libs)/**/*.{js,ts,tsx,css}'",
+    "format-check": "prettier --list-different 'src/main/js/!(libs)/**/*.{js,ts,tsx,css}'",
+    "lint": "eslint --ext js,ts,tsx --quiet src/main/js",
+    "lint-report": "eslint --ext js,ts,tsx -f json -o eslint-report.json src/main/js",
+    "ts-check": "tsc --noEmit",
+    "validate": "yarn lint && yarn ts-check && yarn format-check && yarn test",
+    "validate-ci": "yarn lint-report && yarn ts-check && yarn format-check && yarn test --coverage"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "browserslist": [
+    "last 3 Chrome versions",
+    "last 3 Firefox versions",
+    "last 3 Safari versions",
+    "last 3 Edge versions",
+    "IE 11"
+  ],
+  "jest": {
+    "coverageDirectory": "<rootDir>/coverage",
+    "collectCoverageFrom": [
+      "src/main/js/**/*.{ts,tsx}"
+    ],
+    "coverageReporters": [
+      "lcovonly"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "ignoreCodes": [
+            151001
+          ]
+        }
+      }
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/FileStub.js",
+      "^.+\\.css$": "<rootDir>/config/jest/CSSStub.js"
+    },
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js",
+      "<rootDir>/config/jest/SetupTestEnvironment.js",
+      "<rootDir>/config/jest/SetupEnzyme.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/config",
+      "<rootDir>/node_modules",
+      "<rootDir>/scripts"
+    ],
+    "testRegex": "(/__tests__/.*|\\-test)\\.(ts|tsx|js)$",
+    "transform": {
+      "\\.js$": "babel-jest",
+      "\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "printWidth": 100,
+    "singleQuote": true
+  }
+}
